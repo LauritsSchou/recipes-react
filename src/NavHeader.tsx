@@ -17,6 +17,9 @@ export default function NavHeader() {
         <li>
           <NavLink to="/add">Add</NavLink>
         </li>
+        <li>
+          <NavLink to="/contact">Contact</NavLink>
+        </li>
         <AuthStatus />
       </ul>
     </nav>
