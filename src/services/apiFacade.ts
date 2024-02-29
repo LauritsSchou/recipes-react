@@ -1,9 +1,8 @@
 import { API_URL } from "../settings";
-import  { makeOptions,handleHttpErrors } from "./fetchUtils";
+import { makeOptions, handleHttpErrors } from "./fetchUtils";
 const CATEGORIES_URL = API_URL + "/categories";
 const RECIPE_URL = API_URL + "/recipes";
 const INFO_URL = API_URL + "/info";
-
 
 interface Recipe {
   id: number | null;
@@ -23,10 +22,10 @@ interface Info {
 }
 
 let categories: Array<string> = [];
-let recipes: Array<Recipe> = [];
+const recipes: Array<Recipe> = [];
 
 async function getCategories(): Promise<Array<string>> {
-  if (categories.length > 0) return [...categories];
+  // if (categories.length > 0) return [...categories];
   const res = await fetch(CATEGORIES_URL).then(handleHttpErrors);
   categories = [...res];
   return categories;

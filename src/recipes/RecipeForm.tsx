@@ -26,11 +26,11 @@ export default function RecipeForm() {
   // }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // const { name, value } = e.target;
-    // setFormData((prevFormData) => ({
-    //   ...prevFormData,
-    //   [name]: value,
-    // }));
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
   };
   const handleDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
     // e.preventDefault();
@@ -53,18 +53,11 @@ export default function RecipeForm() {
       <form id="recipeForm">
         <div className="form-group">
           <label htmlFor="id">ID:</label>
-          <input type="text" id="name" name="name" disabled value={formData.id || ""} />
+          <input type="text" id="id" name="id" disabled value={formData.id || ""} />
         </div>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
+          <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
         </div>
         <div className="form-group">
           <label htmlFor="category">Category:</label>
@@ -99,23 +92,11 @@ export default function RecipeForm() {
         </div>
         <div className="form-group">
           <label htmlFor="thumb">Thumbnail URL:</label>
-          <input
-            type="text"
-            id="thumb"
-            name="thumb"
-            value={formData.thumb}
-            onChange={handleChange}
-          />
+          <input type="text" id="thumb" name="thumb" value={formData.thumb} onChange={handleChange} />
         </div>
         <div className="form-group">
           <label htmlFor="youTube">YouTube URL:</label>
-          <input
-            type="text"
-            id="youTube"
-            name="youTube"
-            value={formData.youTube}
-            onChange={handleChange}
-          />
+          <input type="text" id="youTube" name="youTube" value={formData.youTube} onChange={handleChange} />
         </div>
         <div className="form-group">
           <label htmlFor="ingredients">Ingredients:</label>
@@ -131,7 +112,7 @@ export default function RecipeForm() {
         </div>
         <div className="form-group">
           <label htmlFor="source">Source:</label>
-          <input type="text" id="source" name="source" required />
+          <input type="text" id="source" name="source" value={formData.source} onChange={handleChange} required />
         </div>
       </form>
       <button type="submit" className="recipe-form-btn">
