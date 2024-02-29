@@ -16,8 +16,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/categories/" element={<Categories />} />
-        <Route path="/recipes">
-          <Route index element={<RecipesLayout />} />
+        <Route path="/recipes" element={<RecipesLayout />}>
           <Route path=":id" element={<Recipe />} />
         </Route>
         <Route path="/add" element={<RecipeForm />} />
