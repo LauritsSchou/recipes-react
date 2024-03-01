@@ -11,7 +11,6 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const auth = useAuth();
-  const [err, setErr] = useState(null);
 
   const from = location.state?.from?.pathname || "/";
 
@@ -24,14 +23,9 @@ const Login = () => {
     const user = Object.fromEntries(formData) as unknown as User;
     console.log(user);
 
-    auth
-      .signIn(user)
-      .then(() => {
-        navigate(from, { replace: true });
-      })
-      .catch((err) => {
-        setErr(err);
-      });
+    auth.signIn(user).then(() => {
+      navigate(from, { replace: true });
+    });
   }
 
   return (

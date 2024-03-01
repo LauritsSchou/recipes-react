@@ -3,7 +3,7 @@ import { Categories } from "./recipes/Categories";
 import Recipe from "./recipes/Recipe";
 import RecipeForm from "./recipes/RecipeForm";
 import RecipesLayout from "./recipes/RecipesLayout";
-import LogIn from "./security/Login";
+import LogIn from "./security/LogIn";
 import LogOut from "./security/LogOut";
 import Layout from "./Layout";
 import Home from "./Home";
