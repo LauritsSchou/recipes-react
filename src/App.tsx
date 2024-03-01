@@ -4,13 +4,14 @@ import Recipe from "./recipes/Recipe";
 import RecipeForm from "./recipes/RecipeForm";
 import Login from "./security/Login";
 import RecipesLayout from "./recipes/RecipesLayout";
-//import Logout from "./security/_Logout";
+import LogOut from "./security/LogOut";
 import Layout from "./Layout";
 import Home from "./Home";
 import "./App.css";
+// import { useAuth } from "./security/AuthProvider";
 
 export default function App() {
-  //const auth = useAuth();
+  // const auth = useAuth();
   return (
     <Layout>
       <Routes>
@@ -21,7 +22,7 @@ export default function App() {
         </Route>
         <Route path="/add" element={<RecipeForm />} />
         <Route path="/login" element={<Login />} />
-        {/* <Route path="/logout" element={<Logout />} /> */}
+        <Route path="/logout" element={<LogOut />} />
         <Route path="*" element={<h2>Not Found</h2>} />
       </Routes>
     </Layout>

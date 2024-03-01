@@ -41,9 +41,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   function isLoggedInAs(role: string[]) {
-    const roles: Array<string> = JSON.parse(
-      localStorage.getItem("roles") || "[]"
-    );
+    const roles: Array<string> = JSON.parse(localStorage.getItem("roles") || "[]");
     return roles?.some((r) => role.includes(r)) || false;
   }
 

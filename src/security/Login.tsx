@@ -11,15 +11,18 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const auth = useAuth();
-
   const [err, setErr] = useState(null);
+
   const from = location.state?.from?.pathname || "/";
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    console.log("handleSubmit");
+
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
     const user = Object.fromEntries(formData) as unknown as User;
+    console.log(user);
 
     auth
       .signIn(user)
@@ -29,6 +32,7 @@ const Login = () => {
       .catch((err) => {
         setErr(err);
       });
+    console.log(auth);
   }
 
   return (
@@ -37,27 +41,11 @@ const Login = () => {
         <h2>Login</h2>
         <div className="login-form-group">
           <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            name="username"
-            value={user.username}
-            onChange={(e) =>
-              setUser((prev) => ({ ...prev, username: e.target.value }))
-            }
-            required
-          />
+          <input type="text" name="username" value={user.username} onChange={(e) => setUser((prev) => ({ ...prev, username: e.target.value }))} required />
         </div>
         <div className="login-form-group">
           <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            value={user.password}
-            onChange={(e) =>
-              setUser((prev) => ({ ...prev, password: e.target.value }))
-            }
-            required
-          />
+          <input type="password" name="password" value={user.password} onChange={(e) => setUser((prev) => ({ ...prev, password: e.target.value }))} required />
         </div>
         <button type="submit" className="login-btn">
           Login
